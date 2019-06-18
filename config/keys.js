@@ -1,7 +1,13 @@
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./prod');
-} else if (process.env.NODE_ENV === 'ci') {
-  module.exports = require('./ci');
-} else {
-  module.exports = require('./dev');
+switch (process.env.NODE_ENV) {
+  case "production":
+    module.exports = require("./prod");
+    break;
+  case "ci":
+    module.exports = require("./ci");
+    break;
+  case "dev":
+    module.exports = require("./dev");
+    break;
+  default:
+    module.exports = require("./dev");
 }
